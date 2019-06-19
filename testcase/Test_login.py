@@ -16,7 +16,9 @@ class TestLogin(unittest.TestCase):
 
     # Setup
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        option = webdriver.ChromeOptions()
+        option.add_argument('disable-infobars')
+        self.driver = webdriver.Chrome(chrome_options = option,desired_capabilities = None)
         self.driver.implicitly_wait(30)
         self.base_url = "http://www.baidu.com"
         self.driver.maximize_window()
